@@ -1,0 +1,13 @@
+{
+    "conventionalCommits.scopes": [
+        "backend"
+    ],
+    "[python]": {
+    "editor.defaultFormatter": "ms-python.autopep8",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
+  },
+  "python.isort.args":["--profile", "pep8"],
+}
