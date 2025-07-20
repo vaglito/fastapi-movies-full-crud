@@ -3,11 +3,11 @@
         "backend"
     ],
     "[python]": {
-    "editor.defaultFormatter": "ms-python.autopep8",
+    "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
         "source.organizeImports": "explicit"
     },
   },
-  "python.isort.args":["--profile", "pep8"],
+  "python.isort.args":["--profile", "black"],
 }
