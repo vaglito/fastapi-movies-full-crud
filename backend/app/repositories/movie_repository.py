@@ -20,8 +20,7 @@ class MovieRepository:
         return [m for m in self.movies if m.genero.lower() == genre.lower()]
 
     def create(self, movie: MovieCreate) -> Movie:
-        new_id = len(self.movies) + 1
-        new_movie = Movie(id=new_id, **movie.model_dump())
+        new_movie = Movie(**movie.model_dump())
         self.movies.append(new_movie)
         return new_movie
 
