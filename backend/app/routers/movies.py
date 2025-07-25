@@ -48,7 +48,7 @@ def get_movies_by_genre(
 def create_movie(
     movie: MovieCreate, repo: MovieRepository = Depends(get_movie_repository)
 ):
-    return repo.create
+    return repo.create(movie)
 
 
 @router.put("/movies/{id}", tags=["movies"])
