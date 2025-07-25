@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 import { Provider } from "@/components/ui/provider";
 import "./globals.css";
+import { Navbar } from "@/components/ui/navbar/navbar";
 
 const lato = Lato({
   weight: ["400"],
@@ -21,7 +22,10 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning>
       <body className={`${lato.className} antialiased`}>
-        <Provider>{children}</Provider>
+        <Provider>
+          <Navbar />
+          {children}
+        </Provider>
       </body>
     </html>
   );
