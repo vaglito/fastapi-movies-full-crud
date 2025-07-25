@@ -1,4 +1,4 @@
-import { Billboard } from "@/components/billboard";
+import { BillboardContainer } from "@/components/billboard-container";
 import { Container } from "@chakra-ui/react";
 import { Button, Stack, Heading, Text } from "@chakra-ui/react";
 
@@ -8,9 +8,8 @@ export default function Home() {
       <Heading as="h1" size="3xl">
         Bienvenido a Cine Movie
       </Heading>
-      <Text>Explore la amplia gama de peliculas en nuestra cartelera.</Text>
       <Stack>
-        <Billboard />
+        <BillboardContainer />
       </Stack>
     </Container>
   );

@@ -1,8 +1,8 @@
 import { Stack, Heading, Text } from "@chakra-ui/react";
-import { BillboardCard } from "@/components/ui/billboard/billboard-card";
+import { Billboard } from "./ui/billboard/billboard";
 import { fetchMovies } from "@/app/lib/movie";
 
-export async function Billboard() {
+export async function BillboardContainer() {
   const movies = await fetchMovies();
 
   return (
@@ -11,7 +11,7 @@ export async function Billboard() {
       <Text>Descubre las ultimas adiciones a nuestra cartelera.</Text>
 
       <Stack>
-        {movies.detail ? <Text>{movies.detail}</Text> : <BillboardCard movies={movies} />}
+        {movies.detail ? <Text>{movies.detail}</Text> : <Billboard movies={movies} />}
       </Stack>
     </Stack>
   );
