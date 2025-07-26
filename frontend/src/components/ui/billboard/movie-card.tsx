@@ -52,7 +52,7 @@ export function MovieCard({ movie }: MovieCardProps) {
     } catch (error) {
       toaster.error({
         title: "Error del servidor",
-        description: "Intenta nuevamente más tarde.",
+        description: "Intenta nuevamente más tarde." + error,
       });
     }
   };
