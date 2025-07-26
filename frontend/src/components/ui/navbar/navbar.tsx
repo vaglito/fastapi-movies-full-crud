@@ -1,4 +1,4 @@
-import { Box, Container, Stack, Flex, Button } from "@chakra-ui/react";
+import { Box, Container, Stack, Flex } from "@chakra-ui/react";
 import { CreateMovieDialog } from "./create-movie-modal";
 
 export function Navbar() {
