@@ -32,3 +32,10 @@ class MovieRepository:
                 self.movies[index] = movie
                 return movie
         raise ValueError("Movie Not found")
+
+    def delete(self, movie_id: int) -> None:
+        for index, movie in enumerate(self.movies):
+            if movie.id == movie_id:
+                del self.movies[index]
+                return
+        raise ValueError("Movie Not found")
