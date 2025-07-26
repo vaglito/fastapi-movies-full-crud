@@ -1,6 +1,8 @@
 import datetime
-from pydantic import BaseModel, Field
 from typing import Optional
+
+from pydantic import BaseModel, Field
+
 
 class Movie(BaseModel):
     id: int
@@ -10,8 +12,8 @@ class Movie(BaseModel):
     rating: float
     genre: str
 
+
 class MovieCreate(BaseModel):
-    id: int
     title: str = Field(max_length=60)
     overview: Optional[str] = Field(max_length=250)
     year: int = Field(le=datetime.date.today().year, ge=1900)
