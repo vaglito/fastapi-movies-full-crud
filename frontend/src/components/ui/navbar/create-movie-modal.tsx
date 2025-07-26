@@ -39,7 +39,6 @@ export function CreateMovieDialog() {
 
   const onSubmit = handleSubmit(async (data) => {
     try {
-      console.log(data)
       const payload = {
         ...data,
         rating: rating,
@@ -66,7 +65,7 @@ export function CreateMovieDialog() {
       toaster.error({
         title: "Error al crear la película catch",
         description:
-          "No se pudo crear la película. Por favor, inténtalo de nuevo.",
+          "No se pudo crear la película. Por favor, inténtalo de nuevo." + error,
         type: "error",
       });
       return;
