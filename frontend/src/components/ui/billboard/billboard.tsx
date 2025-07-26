@@ -1,4 +1,5 @@
-"use client";
+"use client"
+
 import { Stack } from "@chakra-ui/react";
 import { Movie, MovieCard } from "./movie-card";
 
