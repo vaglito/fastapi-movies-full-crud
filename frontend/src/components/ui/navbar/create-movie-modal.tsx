@@ -29,7 +29,6 @@ export function CreateMovieDialog() {
   const router = useRouter();
   const ref = useRef<HTMLInputElement>(null);
   const [rating, setRating] = useState(0);
-  const [currentId, setCurrentId] = useState(1);
 
   const {
     register,
@@ -40,12 +39,13 @@ export function CreateMovieDialog() {
 
   const onSubmit = handleSubmit(async (data) => {
     try {
+      console.log(data)
       const payload = {
         ...data,
-        id: currentId,
         rating: rating,
       };
       const responseCreate = await fetchCreateMovie(payload);
+
       if (responseCreate.status !== 201) {
         toaster.error({
           title: "Error al crear la película",
@@ -61,7 +61,6 @@ export function CreateMovieDialog() {
       });
       reset();
       setRating(0);
-      setCurrentId((prevId) => prevId + 1);
       router.refresh();
     } catch (error) {
       toaster.error({
