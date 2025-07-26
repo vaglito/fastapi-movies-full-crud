@@ -1,6 +1,9 @@
 import { BillboardContainer } from "@/components/billboard-container";
 import { Container } from "@chakra-ui/react";
-import { Button, Stack, Heading, Text } from "@chakra-ui/react";
+import { Stack, Heading } from "@chakra-ui/react";
+
+
+export const dynamic = 'force-dynamic'
 
 export default function Home() {
   return (
