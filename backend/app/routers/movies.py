@@ -48,7 +48,7 @@ def get_movies_by_genre(
 def create_movie(
     movie: MovieCreate, repo: MovieRepository = Depends(get_movie_repository)
 ):
-    return repo.create
+    return repo.create(movie)
 
 
 @router.put("/movies/{id}", tags=["movies"])
@@ -59,3 +59,13 @@ def update_movie(
         raise HTTPException(
             status_code=HTTP_404_NOT_FOUND, detail="Pelicula no encontrada."
         )
+
+
+@router.delete("/movies/{id}", tags=["movies"])
+def delete_movie(id: int, repo: MovieRepository = Depends(get_movie_repository)):
+    if not repo.get_by_id(id):
+        raise HTTPException(
+            status_code=HTTP_404_NOT_FOUND, detail="Pelicula no encontrada."
+        )
+    repo.delete(id)
+    return {"detail": "Pelicula eliminada exitosamente."}
