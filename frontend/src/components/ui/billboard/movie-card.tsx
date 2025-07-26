@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import {
   Badge,
   Button,
@@ -10,6 +10,9 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
+import { useRouter } from "next/navigation";
+import { toaster, Toaster } from "@/components/ui/toaster";
+import { fetchDeleteMovie } from "@/app/lib/movie";
 
 export type Movie = {
   id: number;
@@ -26,11 +29,33 @@ interface MovieCardProps {
 }
 
 export function MovieCard({ movie }: MovieCardProps) {
+  const router = useRouter();
 
-    const handleRemove = async () => {
-    const response = await fetch('')
-    // Implement the logic to remove the movie here
+  const handleRemove = async () => {
+    try {
+      const res = await fetchDeleteMovie(movie.id);
+
+      if (!res.ok) {
+        toaster.error({
+          title: "Error al eliminar",
+          description: "No se pudo eliminar la película.",
+        });
+        return;
+      }
+
+      toaster.success({
+        title: "Película eliminada",
+        description: "La película fue eliminada correctamente.",
+      });
+
+      router.refresh();
+    } catch (error) {
+      toaster.error({
+        title: "Error del servidor",
+        description: "Intenta nuevamente más tarde.",
+      });
     }
+  };
   return (
     <Stack borderWidth="1px" borderRadius="lg" padding={4} maxW="232px">
       {movie.image ? (
@@ -62,9 +87,8 @@ export function MovieCard({ movie }: MovieCardProps) {
       <HStack>
         <Badge>{movie.genre}</Badge>
       </HStack>
-      <Button colorPalette="red" variant="outline" onClick={handleRemove}>
-        Remove movie
-      </Button>
+      <Button colorPalette="red" variant="outline" onClick={handleRemove}>Remove movie</Button>
+      <Toaster />
     </Stack>
   );
 }
