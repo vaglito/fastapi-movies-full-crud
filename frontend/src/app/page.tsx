@@ -1,13 +1,16 @@
-import { Button, HStack } from "@chakra-ui/react";
+import { BillboardContainer } from "@/components/billboard-container";
+import { Container } from "@chakra-ui/react";
+import { Button, Stack, Heading, Text } from "@chakra-ui/react";
 
 export default function Home() {
   return (
-    <main>
-      <h1 className="text-4xl font-bold">Welcome to Movie API</h1>
-      <p className="mt-4">Explore the world of movies with our API.</p>
-      <HStack>
-        <Button colorPalette="green">Click me</Button>
-      </HStack>
-    </main>
+    <Container>
+      <Heading as="h1" size="3xl">
+        Bienvenido a Cine Movie
+      </Heading>
+      <Stack>
+        <BillboardContainer />
+      </Stack>
+    </Container>
   );
 }
